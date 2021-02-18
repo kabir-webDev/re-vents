@@ -10,7 +10,7 @@ function Sandbox() {
     return (
         <div>
             <h1>Sandbox</h1>
-            <h2>Number is: {data.data}</h2>
+            <h2>Updated Number is: {data.data}</h2>
             <Button onClick={()=> dispatch(increment(2))} content="INCREMENT" color='teal'/>
             <Button onClick={()=> dispatch(decrement(1))} content="DECREMENT" color='red'/>
             <Button onClick={()=> dispatch({type: ADD_NAME})} content="Add User" color='green'/>
