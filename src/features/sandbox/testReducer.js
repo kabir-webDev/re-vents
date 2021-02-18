@@ -1,42 +1,36 @@
-const INCREMENT_NUMBER = "INCREMENT";
-const DECREMENT_NUMBER = "DECREMENT";
-export const ADD_NAME = "ADD";
+export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
+export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
 
 export function increment(amount) {
-  return {
-    type: INCREMENT_NUMBER,
-    payload: amount,
-  };
+    return {
+        type: INCREMENT_COUNTER,
+        payload: amount
+    }
 }
 
 export function decrement(amount) {
-  return {
-    type: DECREMENT_NUMBER,
-    payload: amount,
-  };
+    return {
+        type: DECREMENT_COUNTER,
+        payload: amount
+    }
 }
 
+
 const initialState = {
-  data: 50,
-  name: ["Kabir"],
+  data: 42,
 };
 
-export default function testReducer(state = initialState, action) {
-  switch (action.type) {
-    case "INCREMENT":
+export default function testReducer(state = initialState, {type, payload}) {
+  switch (type) {
+    case INCREMENT_COUNTER:
       return {
         ...state,
-        data: state.data + action.payload,
+        data: state.data + payload,
       };
-    case "DECREMENT":
+    case DECREMENT_COUNTER:
       return {
         ...state,
-        data: state.data - action.payload,
-      };
-    case "ADD":
-      return {
-        ...state,
-        name: [...state.name, ["SIkder"]],
+        data: state.data - payload,
       };
     default:
       return state;
